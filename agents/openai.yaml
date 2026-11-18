@@ -1,0 +1,6 @@
+interface:
+  display_name: "数学建模竞赛全流程"
+  short_description: "覆盖国赛、华为杯研赛、美赛、华数杯/数维杯的数学建模全流程：从题意与数据审计、四大题型建模验证到图表、官方结果表与论文闭环"
+  default_prompt: "Use $modeling-competition-workflow to turn this competition problem into a reproducible, validated, paper-ready modeling solution."
+policy:
+  allow_implicit_invocation: true

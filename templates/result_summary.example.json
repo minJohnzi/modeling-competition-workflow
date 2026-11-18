@@ -1,0 +1,68 @@
+{
+  "schema_version": "2.0",
+  "question": "q1",
+  "archetype": "operations_research",
+  "generated_at": "2026-01-01T12:00:00+08:00",
+  "status": "SUPPORTED",
+  "configuration": {
+    "solver": "HiGHS",
+    "time_limit_seconds": 300,
+    "mip_gap_tolerance": 0.001
+  },
+  "random_seed": 42,
+  "input_hashes": {
+    "data/raw_input.csv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "data_audit": {
+    "raw_rows": 1000,
+    "cleaned_rows": 995,
+    "missing_handled": 5,
+    "notes": "Dropped 5 duplicate records with identical primary keys."
+  },
+  "scope_contract": {
+    "entity_set": "All scheduled jobs in dataset",
+    "spatiotemporal_scope": "t in [0, 24) hours",
+    "denominator": "Total submitted job workload",
+    "aggregation": "Sum / weighted average",
+    "unit": "CNY / hour"
+  },
+  "baselines": {
+    "simple_baseline": {
+      "name": "LocalFCFS",
+      "primary_objective": 1250.0
+    },
+    "competitor": {
+      "name": "GreedyPriority",
+      "primary_objective": 1120.0
+    }
+  },
+  "recommended_solution": {
+    "name": "CoupledMILP_Heuristic",
+    "primary_objective": 980.0,
+    "absolute_improvement_vs_simple": 270.0,
+    "relative_improvement_vs_simple_pct": 21.6
+  },
+  "primary_metrics": {
+    "total_cost_cny": 980.0,
+    "completion_rate_pct": 100.0
+  },
+  "constraint_or_conservation_audit": {
+    "independent_verifier_passed": true,
+    "max_conservation_residual": 0.0,
+    "hard_violations": 0
+  },
+  "validation": {
+    "method": "Exact MIP lower bound on representative high-load window",
+    "optimality_gap_pct": 0.85,
+    "multi_seed_std": 0.0
+  },
+  "sensitivity": {
+    "parameters_scanned": ["capacity_limit", "penalty_weight"],
+    "critical_threshold_found": true
+  },
+  "runtime_seconds": 4.32,
+  "limitations": [
+    "Assumes deterministic arrival schedule within each 1-hour slot.",
+    "Exact optimality bound verified only on the peak 6-hour window."
+  ]
+}
