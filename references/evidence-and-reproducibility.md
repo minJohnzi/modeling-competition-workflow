@@ -14,7 +14,7 @@
     │   ├── README.md        # 运行入口、依赖、种子、输入与核心数字
     │   └── notes.md         # 待验证假设、口径记录与局限备忘
     ├── data/                # 官方原始只读数据（建议根目录集中存放）
-    ├── shared/              # 跨问题公共模块（数据加载、统一样式、官方填表工具）
+    ├── shared/              # 跨问题公共模块（数据加载、可复制自 templates/paper_style.py 的绘图样式、官方填表工具）
     ├── paper/               # 最终整合总论文（LaTeX/Word/Markdown 章节与官方结果表）
     ├── PROJECT_STATE.md     # 复制自 templates/PROJECT_STATE.md
     ├── INTERFACE_CONTRACTS.md # 复制自 templates/INTERFACE_CONTRACTS.md
@@ -54,7 +54,7 @@
 
 - `result_summary.json`：严格 JSON 的关键参数、真实输入哈希、结果与状态；
 - `table_*.csv`：可独立复算的干净数值表（无 `NaN`/`inf`/合并单元格）；
-- `figNN_meaning.png`：300–400 dpi 论文级图片（若使用 LaTeX 排版，强烈建议同时输出同名 `figNN_meaning.pdf` 或 `.svg` 矢量图）；
+- `figNN_meaning.png`：300–400 dpi 论文级图片（推荐基于 `templates/paper_style.py` 绘制；若使用 LaTeX 排版，强烈建议同时输出同名 `figNN_meaning.pdf` 或 `.svg` 矢量图）；
 - `run_log.md`：命令、环境、时间、参数、哈希、测试和结论；
 - 官方填报表（如赛题要求 `result1.xlsx`、`Result.csv`）：由脚本从正式输出自动生成与校验；
 - 与当前结果同步的 `paper/` 草稿。

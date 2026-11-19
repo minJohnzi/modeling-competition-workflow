@@ -23,7 +23,8 @@ modeling-competition-workflow/
 │   ├── PROJECT_STATE.md             # 项目全局状态模板
 │   ├── INTERFACE_CONTRACTS.md       # 跨问题接口契约模板
 │   ├── ARTIFACT_REGISTRY.md         # 正式产物状态登记模板
-│   └── result_summary.example.json  # 严格 JSON 机器摘要模板
+│   ├── result_summary.example.json  # 严格 JSON 机器摘要模板
+│   └── paper_style.py               # 通用中英双模 Matplotlib 论文绘图与双格式导出模板
 └── scripts/
     └── audit_competition_project.py # 只读结构、哈希、CSV、DPI 与匿名性审计脚本
 ```
